@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-catalog="coomeva_test"
+		match-name="test_cliente" />
+	<table-filter match-catalog="coomeva_test"
+		match-name="test_factura" />
+	<table-filter match-catalog="coomeva_test"
+		match-name="test_factura_detalle" />
+	<table-filter match-catalog="coomeva_test"
+		match-name="test_producto" />
+	<table catalog="coomeva_test" name="test_cliente">
+		<column name="IdCliente"></column>
+		<column name="Identifiacion"></column>
+		<column name="Telefono"></column>
+		<column name="Nombres"></column>
+		<column name="Apellidos"></column>
+		<column name="Direccion"></column>
+		<column name="Email"></column>
+	</table>
+	<table catalog="coomeva_test" name="test_factura">
+		<column name="IdFactura"></column>
+		<column name="IdCliente"></column>
+		<column name="ValorTotal"></column>
+		<column name="FechaVenta"></column>
+	</table>
+	<table catalog="coomeva_test" name="test_factura_detalle">
+		<column name="IdFacturaDetalle"></column>
+		<column name="IdProducto"></column>
+		<column name="Cantidad"></column>
+		<column name="IdFactura"></column>
+		<column name="ValorUnidad"></column>
+		<column name="ValorTotal"></column>
+	</table>
+	<table catalog="coomeva_test" name="test_producto">
+		<column name="IdProducto"></column>
+		<column name="ValorUnidad"></column>
+		<column name="Codigo"></column>
+		<column name="Nombre"></column>
+		<column name="Stock"></column>
+	</table>
+</hibernate-reverse-engineering>

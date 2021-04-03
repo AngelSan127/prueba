@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/11/2020, 7:41:26 p.?m. by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.TestProducto" table="test_producto" catalog="coomeva_test" optimistic-lock="version">
+        <id name="idProducto" type="java.lang.Integer">
+            <column name="IdProducto" />
+            <generator class="identity" />
+        </id>
+        <property name="codigo" type="string">
+            <column name="Codigo" length="30" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="100" not-null="true" />
+        </property>
+        <property name="valorUnidad" type="big_decimal">
+            <column name="ValorUnidad" precision="18" scale="3" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="Stock" not-null="true" />
+        </property>
+        <set name="testFacturaDetalles" table="test_factura_detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdProducto" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.TestFacturaDetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

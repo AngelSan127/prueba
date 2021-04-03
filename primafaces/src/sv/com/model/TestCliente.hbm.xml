@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/11/2020, 7:41:26 p.?m. by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.TestCliente" table="test_cliente" catalog="coomeva_test" optimistic-lock="version">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="IdCliente" />
+            <generator class="identity" />
+        </id>
+        <property name="identifiacion" type="long">
+            <column name="Identifiacion" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="Nombres" length="100" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="Apellidos" length="100" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="300" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="100" />
+        </property>
+        <set name="testFacturas" table="test_factura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdCliente" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.TestFactura" />
+        </set>
+    </class>
+</hibernate-mapping>

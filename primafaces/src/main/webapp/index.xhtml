@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+
+	<h:body>
+
+	
+		<h:form id="formNuevo">
+				
+				<h:panelGrid columns="2" cellpadding="4">
+				
+				<h:outputText value="Numero factura detalle : " />
+				<p:inputText value="#{facturaDetalleBean.testFacturaDetalle.idFacturaDetalle}" />
+				
+				<h:outputText value="factura : " />
+				<p:inputText id="last-name1" value="#{facturaDetalleBean.testFacturaDetalle.testFactura.idFactura}" />
+				
+				<h:outputText value="Producto : " />
+				<p:inputText id="last-name2" value="#{facturaDetalleBean.testFacturaDetalle.testProducto.idProducto}" />
+				
+				<h:outputText value="cantidad : " />
+				<p:inputText id="last-name3" value="#{facturaDetalleBean.testFacturaDetalle.cantidad}"/>
+				
+				<h:outputText value="Valor unidad : " />
+				<p:inputText id="last-name4" value="#{facturaDetalleBean.testFacturaDetalle.valorUnidad}"/>
+			
+			 	<h:outputText value="Valor total : " />
+				<p:inputText id="last-name5" value="#{facturaDetalleBean.testFacturaDetalle.valorTotal}" />		
+				
+				<p:commandButton value="Regitrar detalle factura" actionListener="#{facturaDetalleBean.nuevoDetalle()}" />
+					
+				</h:panelGrid>	
+		</h:form>
+
+	</h:body>
+
+	<h1>Listado facturacion list</h1>	
+	
+	<h:form id="frmList">
+		<p:dataTable id="tablaListar" var="item" value="#{productoBean.listtestProducto}" vemptyMessage="No tiene registros"
+		paginator="true" paginatorPosition="top" row="10">
+		
+			<p:column headerText="#">
+				<p:outputLabel  value="#{item.idProducto}"/>
+			</p:column>
+			
+			<p:column headerText="id">
+				<p:outputLabel  value="#{item.codigo}"/>
+			</p:column>
+			
+			<p:column headerText="Nombre">
+				<p:outputLabel  value="#{item.nombre}"/>
+			</p:column>
+			
+			<p:column headerText="Cantidad">
+				<p:outputLabel  value="#{item.stock}"/>
+			</p:column>
+			
+			<p:column headerText="costo">
+				<p:outputLabel  value="#{item.valorUnidad}"/>
+			</p:column>
+		
+		</p:dataTable>
+	</h:form>
+
+</f:view>

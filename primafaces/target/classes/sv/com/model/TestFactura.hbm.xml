@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/11/2020, 7:41:26 p.?m. by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.TestFactura" table="test_factura" catalog="coomeva_test" optimistic-lock="version">
+        <id name="idFactura" type="int">
+            <column name="IdFactura" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="testCliente" class="sv.com.model.TestCliente" fetch="select">
+            <column name="IdCliente" not-null="true" />
+        </many-to-one>
+        <property name="fechaVenta" type="timestamp">
+            <column name="FechaVenta" length="19" not-null="true" />
+        </property>
+        <property name="valorTotal" type="big_decimal">
+            <column name="ValorTotal" precision="18" scale="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
